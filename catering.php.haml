@@ -1,0 +1,42 @@
+
+:php
+  $min = $_GET['min'];
+  $max = $_GET['max'];
+  $c1 = $_GET['c1'];
+  $c2 = $_GET['c2'];
+  $c3 = $_GET['c3'];
+  $c4 = $_GET['c4'];
+  $c5 = $_GET['c5'];
+!!!
+%html
+%head
+  %title
+
+%body
+
+%table
+  :php
+    $start = ($max-$min)%5 == 0 ? $min : $min/5*5;
+    $end = ($max-$min)%5 == 0 ? $max : (1+$max/5)*5;
+
+  
+  %table
+    %thead
+      %tr
+        %th
+        %th= php_echo '$c1;'
+        %th= php_echo '$c2;'
+        %th= php_echo '$c3;'
+        %th= php_echo '$c4;'
+        %th= php_echo '$c5;'
+    %tbody
+      = php 'for($i=$start; $i<=$end; $i+=5):'
+      %tr
+        %th= php_echo '$i;'
+        %td= php_echo '$c1 * $i;'
+        %td= php_echo '$c2 * $i;'
+        %td= php_echo '$c3 * $i;'
+        %td= php_echo '$c4 * $i;'
+        %td= php_echo '$c5 * $i;'
+
+      = php 'endfor;'

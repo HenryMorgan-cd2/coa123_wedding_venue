@@ -1,0 +1,128 @@
+@charset "UTF-8";
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans; }
+
+.hidden {
+  display: none; }
+
+form .rating_field {
+  font-size: 1.5em;
+  letter-spacing: -2px; }
+  form .rating_field label {
+    opacity: 0.3;
+    cursor: pointer; }
+  form .rating_field input[type=checkbox]:checked + label {
+    opacity: 1; }
+form label {
+  font-weight: bold;
+  font-size: 0.875em;
+  color: grey;
+  display: block; }
+form .field {
+  margin: 15px 5px; }
+form input:not([type=submit]) {
+  width: 100%;
+  padding: 10px;
+  font-size: 1.125em; }
+form input[type=submit] {
+  background: #a652a9;
+  border: none;
+  color: white;
+  width: 100%;
+  height: 50px;
+  font-size: 1.125em; }
+
+body {
+  background: #efefef; }
+
+#header {
+  background: #673AB7; }
+  #header #header_inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    font-weight: 200;
+    padding: 20px;
+    color: white; }
+
+#page_wrapper {
+  max-width: 1200px;
+  margin: 0 auto; }
+
+#page_container {
+  display: flex; }
+  #page_container #side_bar {
+    background: #e5e5e5;
+    padding: 20px;
+    width: 250px;
+    flex-shrink: 0; }
+    #page_container #side_bar h2 {
+      line-height: 50px;
+      font-weight: 100;
+      text-align: center;
+      margin-top: 0; }
+  #page_container #page_content {
+    width: calc( 100% - 250px ); }
+
+#ui-datepicker-div {
+  width: initial; }
+
+.result {
+  background: white;
+  box-shadow: 0 1px 1px 0px rgba(0, 0, 0, 0.3);
+  margin: 10px 40px 30px; }
+  .result .image_container {
+    width: 45%;
+    display: inline-block;
+    padding: 20px 10px;
+    box-sizing: border-box; }
+    .result .image_container img {
+      max-width: 100%; }
+  .result .result_info {
+    display: inline-block;
+    width: 54%;
+    padding: 20px;
+    box-sizing: border-box; }
+  .result a {
+    display: inline-block;
+    border-radius: 5px;
+    color: white;
+    padding: 10px 20px;
+    background: purple;
+    text-decoration: none; }
+    .result a:hover {
+      text-decoration: underline; }
+  .result table {
+    border: 1px solid grey;
+    border-collapse: collapse;
+    margin: 5px 0; }
+    .result table tr:first-child {
+      background: #BFBFBF;
+      font-size: 0.875em; }
+    .result table td {
+      padding: 0 5px; }
+      .result table td.stars {
+        color: gold; }
+      .result table td.cost:before {
+        content: "£"; }
+  .result .actions {
+    margin-top: 10px; }
+
+.notice {
+  border-radius: 10px;
+  padding: 20px;
+  margin: 20px 10px;
+  text-align: center;
+  box-shadow: 0 2px 2px 0px rgba(0, 0, 0, 0.3);
+  background: white;
+  border-width: 5px;
+  border-style: solid; }
+  .notice.error {
+    color: #500202;
+    background: #f0b1ac;
+    border-color: #b7473e; }
+  .notice.info {
+    background: #f7da85;
+    color: #444400;
+    border-color: #FFC107; }

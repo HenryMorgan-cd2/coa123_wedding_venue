@@ -1,0 +1,15 @@
+= php 'include \'database.inc\''
+!!!
+%html
+  %head
+    %title Venue Details
+
+  %body
+
+
+  %table
+    = php "foreach(getVenueDetails($_GET['venueId'])[0] as $column => $value):"
+    %tr
+      %th= php_echo '$column;'
+      %td= php_echo '$value;'
+    = php 'endforeach;'

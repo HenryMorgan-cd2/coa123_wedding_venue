@@ -1,0 +1,27 @@
+= php 'if (isset($venue)):'
+.result
+  .image_container
+    <img src="#{php_echo('$venue->image;')}">
+  .result_info
+    %h2= php_echo '$venue->name;'
+    %p= php_echo '$venue->body;'
+    .capacity
+      %b Maximum Guests:
+      = php_echo '$venue->maxGuests;'
+    .catering_quality
+      %table
+        %tr
+          %th Quality
+          %th Cost Per Guest
+        = php 'foreach($venue->catering as $catering):'
+        %tr
+          %td.stars= php_echo 'str_repeat(\'&#9733\', $catering[\'quality\'])'
+          %td.cost= php_echo '$catering[\'cost\']'
+        = php 'endforeach;'
+
+    .actions
+      %a{href: '#'} Book Venue
+      %a{href: 'mailto:<Henry Morgan>hexmodr@gmail.com?subject=Wedding Enquiry'} Find Out More
+
+= php '$venue = null;'
+= php 'endif;'

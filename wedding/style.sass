@@ -1,0 +1,154 @@
+body
+  margin: 0
+  padding: 0
+  font-family: sans
+.hidden
+  display: none
+
+form
+
+      
+  .rating_field
+    font-size: 1.5em
+    letter-spacing: -2px
+
+    label
+      opacity: 0.3
+      cursor: pointer
+
+    input[type=checkbox]:checked + label
+      opacity: 1
+
+  label 
+    font-weight: bold
+    font-size: 0.875em
+    color: grey
+    display: block
+
+  .field
+    margin: 15px 5px
+
+  input:not([type=submit])
+    width: 100%
+    padding: 10px
+    font-size: 1.125em
+
+  input[type=submit]
+    background: rgb(166, 82, 169)
+    border: none
+    color: white
+    width: 100%
+    height: 50px
+    font-size: 1.125em
+
+body
+  background: #efefef
+
+#header
+  background: #673AB7
+  
+  #header_inner
+    max-width: 1200px
+    margin: 0 auto
+    font-weight: 200
+    padding: 20px
+    color: white
+
+#page_wrapper
+  max-width: 1200px
+  margin: 0 auto
+
+
+#page_container
+  display: flex
+
+  #side_bar
+    background: #e5e5e5
+    padding: 20px
+    width: 250px
+    flex-shrink: 0
+
+    h2
+      line-height: 50px
+      font-weight: 100
+      text-align: center
+      margin-top: 0
+
+  #page_content
+    width: calc( 100% - 250px )
+
+#ui-datepicker-div
+  width: initial
+
+.result
+  background: white
+  box-shadow: 0 1px 1px 0px rgba(black, 0.3)
+  margin: 10px 40px 30px
+
+  .image_container
+    width: 45%
+    display: inline-block
+    padding: 20px 10px
+    box-sizing: border-box
+
+    img
+      max-width: 100%
+
+  .result_info
+    display: inline-block
+    width: 54%
+    padding: 20px
+    box-sizing: border-box
+
+  h2
+
+  a
+    display: inline-block
+    border-radius: 5px
+    color: white
+    padding: 10px 20px
+    background: purple
+    text-decoration: none
+
+    &:hover
+      text-decoration: underline
+
+  table
+    border: 1px solid grey
+    border-collapse: collapse
+    margin: 5px 0
+    tr:first-child
+      background: #BFBFBF
+      font-size: 0.875em
+
+    td
+      padding: 0 5px
+
+      &.stars
+        color: gold
+      &.cost:before
+        content: '£'
+
+  .actions
+    margin-top: 10px
+
+
+.notice
+  border-radius: 10px
+  padding: 20px
+  margin: 20px 10px
+  text-align: center
+  box-shadow: 0 2px 2px 0px rgba(0, 0, 0, 0.3)
+  background: white
+  border-width: 5px
+  border-style: solid
+
+  &.error
+    color: #500202
+    background: rgb(240, 177, 172)
+    border-color: rgb(183, 71, 62)
+
+  &.info
+    background: rgb(247, 218, 133)
+    color: rgb(68, 68, 0)
+    border-color: #FFC107

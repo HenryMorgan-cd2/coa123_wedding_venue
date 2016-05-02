@@ -1,0 +1,21 @@
+= php 'include \'database.inc\''
+!!!
+%html
+  %head
+    %title Venue Details
+
+  %body
+
+
+  %table
+  %table
+    %thead
+      %th Name
+      %th Price
+    %tbody
+      = php "foreach(getAvailableVenuesWithCapacity($_GET['date'], $_GET['partySize']) as $result):"
+      %tr
+        = php "foreach($result as $column => $value):"
+        %td= php_echo '$value;'
+        = php 'endforeach;'
+      = php 'endforeach;'

@@ -1,0 +1,61 @@
+:php
+  include 'wedding_results.inc';
+%html
+  %head
+    %link{href: "https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css", :rel => 'stylesheet'}
+    %link{href: 'style.css', rel: 'stylesheet'}
+    %script{src: 'https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js'}
+    %script{src: 'https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js'}
+    %script{src: 'script.js'}
+  %body
+    %header#header
+      #header_inner
+        %h1 Find My Venue
+    #page_wrapper
+      #page_container
+        #side_bar
+          %h2 Filter Venues
+          %form
+            .field
+              %label{for: :party_size} Party Size
+              = uh "%input{type: :number, name: :party_size, value: php_echo_var('$party_size')}"
+
+            .field
+              %label Quality Of Catering
+              .rating_fields
+                - 5.downto(1) do |i|
+                  .rating_field
+                    = php "if ($quality && strpos($quality, '#{i}') > -1):" do
+                      %input.hidden{type: :checkbox, name: 'quality[]', id: "quality_#{i}", value: "#{i}", checked: 'checked'}
+                    = php 'else:' do
+                      %input.hidden{type: :checkbox, name: 'quality[]', id: "quality_#{i}", value: "#{i}"}
+                    = php 'endif;'
+                    %label{for: "quality_#{i}"}= " &#9733;"*i
+
+            .fields
+              .field
+                %label{for: :earliest} Earliest
+                %input.datepicker{name: :earliest}
+              .field
+                %label{for: :latest} Latest
+                %input.datepicker{name: :latest}
+
+            .actions         
+              %input{type: 'submit', value: 'Update'}
+
+        #page_content
+
+          /Print errors
+          = php 'if (isset($_GET[\'error\'])):' do
+            .notice.error We're sorry an error has occured.
+          = php 'endif;'
+
+          :php
+            if (sizeof($venues) > 0):
+              foreach($venues as $venue) {
+                $venue->render();
+              }
+            else: 
+          .notice.info
+            Sorry, we have no venues to match your current query.
+          =php 'endif;'

@@ -1,0 +1,34 @@
+<?php if (isset($venue)): ?>
+<div class='result'>
+  <div class='image_container'>
+    <img src="<?php echo $venue->image; ?>">
+  </div>
+  <div class='result_info'>
+    <h2><?php echo $venue->name; ?></h2>
+    <p><?php echo $venue->description; ?></p>
+    <div class='capacity'>
+      <b>Maximum Guests:</b>
+      <?php echo $venue->capacity; ?>
+    </div>
+    <div class='catering_quality'>
+      <table>
+        <tr>
+          <th>Quality</th>
+          <th>Cost Per Guest</th>
+        </tr>
+        <?php foreach($venue->catering_options as $catering): ?>
+        <tr>
+          <td class='stars'><?php echo str_repeat('&#9733', $catering['grade']) ?></td>
+          <td class='cost'><?php echo $catering['cost'] ?></td>
+        </tr>
+        <?php endforeach; ?>
+      </table>
+    </div>
+    <div class='actions'>
+      <a href='#'>Book Venue</a>
+      <a href='mailto:&lt;Henry Morgan&gt;hexmodr@gmail.com?subject=Wedding Enquiry'>Find Out More</a>
+    </div>
+  </div>
+</div>
+<?php $venue = null; ?>
+<?php endif; ?>

@@ -1,0 +1,22 @@
+= php 'include \'database.inc\''
+!!!
+%html
+  %head
+    %title Capacity
+
+  %body
+
+
+  %table
+    %thead
+      %th Name
+      %th Weekend Price
+      %th Weekday Price
+    %tbody
+      = php "foreach(getVenueBetweenCapacities($_GET['minCapacity'], $_GET['maxCapacity']) as $result):"
+      %tr
+        = php "foreach($result as $column => $value):"
+        %td= php_echo '$value;'
+        = php "foreach(getVenueBetweenCapacities($_GET['minCapacity'], $_GET['maxCapacity']) as $column => $value):"
+        = php 'endforeach;'
+      = php 'endforeach;'
